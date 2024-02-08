@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get("/getAll", [CarController::class, "getCars"]);
+Route::get("/getOneCar/{carName}", [CarController::class, "getOneCar"]);
+Route::post("/addCar", [CarController::class, "addCar"]);
+Route::post("/addColor", [CarController::class, "addColor"]);
+Route::post("/addType", [CarController::class, "addType"]);
+Route::put("/modifyCar/{id}", [CarController::class, "modifyCar"]);
+Route::delete("/deleteCar/{id} ", [CarController::class, "deleteCar"]);
+    
